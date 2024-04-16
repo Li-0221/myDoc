@@ -246,6 +246,15 @@ https://github.com/Bilibili/flv.js/
 
 https://madewith.cn/23
 
+## typed.js
+
+打字搞效果！输入任何字符串，然后观察它以您设置的速度键入，退格键入的内容，然后为您设置的字符串开始一个新句子。
+
+仓库地址
+https://github.com/mattboldt/typed.js
+演示地址
+https://mattboldt.github.io/typed.js/
+
 ## timeago.js
 
 它是显示几小时之前，很多随时更新的网站和应用，为了显示出及时性，不再显示具体发布的时间，而是改为几分钟或者几小时前发布的。这样显着时效性更好。这个插件的作用就是这个。
