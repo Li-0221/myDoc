@@ -145,6 +145,18 @@ https://www.npmjs.com/package/dompurify
 
 https://github.com/fengyuanchen/cropperjs/tree/v2
 
+## markedjs
+
+将 markdown 语法解析为 html。
+
+https://github.com/markedjs/marked
+
+## highlightjs
+
+将代码块高亮。
+
+https://highlightjs.readthedocs.io/en/latest/
+
 ## mime
 
 根据文件扩展名获取 MIME 类型，常用于下载文件。
