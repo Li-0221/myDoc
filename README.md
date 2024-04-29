@@ -151,6 +151,12 @@ https://github.com/fengyuanchen/cropperjs/tree/v2
 
 https://github.com/markedjs/marked
 
+## md-editor-v3
+
+vue3 环境的 Markdown 编辑器，使用 jsx 和 typescript 语法开发，支持在 tsx 项目使用。
+
+https://github.com/imzbf/md-editor-v3
+
 ## highlightjs
 
 将代码块高亮。
