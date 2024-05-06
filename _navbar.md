@@ -64,6 +64,7 @@
 
 - components
 
+  - [MarkDown 编辑器](doc/components/md编辑器.md)
   - [VirtualizedList 虚拟列表](doc/components/VirtualizedList虚拟列表.md)
   - [ui 组件封装技巧](doc/components/ui组件封装技巧.md)
   - [音频可视化](doc/components/音频可视化.md)
