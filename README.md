@@ -145,6 +145,12 @@ https://www.npmjs.com/package/dompurify
 
 https://github.com/fengyuanchen/cropperjs/tree/v2
 
+## fingerprintjs
+
+获取浏览器指纹。
+
+https://github.com/fingerprintjs/fingerprintjs/blob/master/docs/api.md#webpackrollupnpmyarn
+
 ## markedjs
 
 将 markdown 语法解析为 html。
