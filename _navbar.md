@@ -5,8 +5,9 @@
 - vue
 
   - [vue3](doc/vue/vue3.md)
-  - [electron](doc/vue/electron.md)
+  - [nuxt-practice](doc/vue/nuxt-practice.md)
   - [nuxt](doc/vue/nuxt.md)
+  - [electron](doc/vue/electron.md)
   - [tsx](doc/vue/tsx.md)
   - [vue2](doc/vue/vue2.md)
   - [vue-router](doc/vue/vue-router.md)
