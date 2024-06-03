@@ -1,0 +1,12 @@
+{
+  "name": "my-doc-li",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "doc": "docsify serve -p 4700"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
