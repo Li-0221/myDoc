@@ -75,7 +75,7 @@ http {
         listen 80;
         server_name sicily.lidoc.top; #域名或服务器ip
         location / {
-            proxy_pass http://localhost:4000;
+            proxy_pass http://127.0.0.1:4000;
             root html;
             index index.html index.htm;
         }
@@ -85,6 +85,55 @@ http {
         }
     }
 }
+```
+
+# SSL 配置
+
+```nginx
+server {
+        listen 80;
+        listen 443 ssl http2 ; #开启https
+        server_name xn--65q48b82tyiihlm.com www.xn--65q48b82tyiihlm.com;
+
+        # ssl配置start
+        ssl_certificate    /www/server/panel/vhost/cert/website/fullchain.pem;
+        ssl_certificate_key    /www/server/panel/vhost/cert/website/privkey.pem;
+        ssl_protocols  TLSv1.2 TLSv1.3;
+        ssl_ciphers EECDH+CHACHA20:EECDH+CHACHA20-draft:EECDH+AES128:RSA+AES128:EECDH+AES256:RSA+AES256:EECDH+3DES:RSA+3DES:!MD5;
+        ssl_prefer_server_ciphers on;
+        ssl_session_cache shared:SSL:10m;
+        ssl_session_timeout 10m;
+        add_header Strict-Transport-Security "max-age=31536000";
+        error_page 497  https://$host$request_uri;
+        # ssl配置end
+
+
+        location / {
+              proxy_pass http://127.0.0.1:3000;
+              proxy_set_header Host $host:$server_port;
+              proxy_set_header X-Real-IP $remote_addr;
+              proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+              proxy_set_header REMOTE-HOST $remote_addr;        proxy_set_header X-Host $host:$server_port;
+              proxy_set_header X-Scheme $scheme;
+              proxy_connect_timeout 30s;
+              proxy_read_timeout 86400s;
+              proxy_send_timeout 30s;
+              proxy_http_version 1.1;
+              proxy_set_header Upgrade $http_upgrade;
+              proxy_set_header Connection "upgrade";
+        }
+
+        location /api/ {
+            proxy_pass http://127.0.0.1:5600/; # 带斜杠就是在url中移除api
+        }
+
+        location /publicFile/ {
+            proxy_pass   http://127.0.0.1:5600; # 不带斜杠就是在url中保留publicFile
+        }
+
+        access_log  /www/wwwlogs/website.log;
+        error_log  /www/wwwlogs/website.error.log;
+       }
 ```
 
 # 负载均衡
@@ -102,8 +151,8 @@ nginx 接收到客户端的请求，转发到不同服务器处理
 ```nginx
 http {
   upstream guigu{
-    server localhost:3000; #服务器1
-    server localhost:4000; #服务器2
+    server 127.0.0.1:3000; #服务器1
+    server 127.0.0.1:4000; #服务器2
   }
 }
 ```
@@ -119,8 +168,8 @@ http {
 ```nginx
 http {
   upstream guigu{
-    server localhost:3000 weight=1; #服务器1
-    server localhost:4000 weight=3; #服务器2
+    server 127.0.0.1:3000 weight=1; #服务器1
+    server 127.0.0.1:4000 weight=3; #服务器2
   }
 }
 ```
@@ -133,8 +182,8 @@ http {
 http {
   upstream guigu{
     ip_hash;
-    server localhost:3000; #服务器1
-    server localhost:4000; #服务器2
+    server 127.0.0.1:3000; #服务器1
+    server 127.0.0.1:4000; #服务器2
   }
 }
 ```
@@ -149,8 +198,8 @@ http {
 http {
   upstream guigu{
     fair;
-    server localhost:3000; #服务器1
-    server localhost:4000; #服务器2
+    server 127.0.0.1:3000; #服务器1
+    server 127.0.0.1:4000; #服务器2
   }
 }
 ```
